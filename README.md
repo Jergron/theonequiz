@@ -99,8 +99,9 @@ var myCCallback = myFuncTypeDeclaration.ptr(myJSCallback);
   > A Promise is a placeholder object that represents the result of an async operation. This object will hold the information about the status of the async operation and will notify us when the async operation succeeds or fails.
 
 1. Provide a simple example of the syntax for handling a Promise.
-  ```
-  asyncCall()
+
+ ```
+ asyncCall()
 .then(function(data1){
     // do something...
     return anotherAsyncCall();
@@ -116,7 +117,6 @@ var myCCallback = myFuncTypeDeclaration.ptr(myJSCallback);
    // handle any error resulting from any of the above calls    
 })
 .done();
-
 ```
 
 ## Scope and this
@@ -124,6 +124,7 @@ var myCCallback = myFuncTypeDeclaration.ptr(myJSCallback);
 What gets logged to the console when the following code executes? Explain why.
 
 "42", because the value is declared in global scope. The other _answer_ variables that are declared inside the both the function's scope will not be hoisted up to global, but only defined inside the function itself. To call the value "0" you could rewrite it this way:
+
 ```
 var answer;
 
@@ -143,6 +144,7 @@ function greg(answer) {
 
 steve();
 ```
+
 To call the value "666" you could rewrite the code this way:
 
 ```
@@ -166,6 +168,7 @@ steve();
 ```
 
 #### NSS ORIGINAL QUIZ CODE: 
+
 ```
 var answer = "42";
 
