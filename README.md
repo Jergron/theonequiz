@@ -92,20 +92,80 @@ var myCCallback = myFuncTypeDeclaration.ptr(myJSCallback);
 1. Write a function named `getAnimals` that uses the jQuery `ajax` method to retrieve the `data/animals.json` file. When you execute the functions, it should just log *just the array* of animals to the console when the async is complete. Make sure you provide a prompt of "animals" when logging the array.
 1. What are the four HTTP verbs that you can use in an XHR that correspond to the CRUD actions (create, read, update, delete)?
 
-  GET, PUT, POST, DELETE
+  PUT, GET, POST, DELETE
 
 1. Why did we use Promises when dealing with asynchronous XHR calls?
-  **Student answer:**
+
+  > A Promise is a placeholder object that represents the result of an async operation. This object will hold the information about the status of the async operation and will notify us when the async operation succeeds or fails.
 
 1. Provide a simple example of the syntax for handling a Promise.
-  **Student answer:**
+  ```
+  asyncCall()
+.then(function(data1){
+    // do something...
+    return anotherAsyncCall();
+})
+.then(function(data2){
+    // do something...  
+    return oneMoreAsyncCall();    
+})
+.then(function(data3){
+   // the third and final async response
+})
+.fail(function(err) {
+   // handle any error resulting from any of the above calls    
+})
+.done();
+
+```
 
 ## Scope and this
 
 What gets logged to the console when the following code executes? Explain why.
 
-**Student answer: **
+"42", because the value is declared in global scope. The other _answer_ variables that are declared inside the both the function's scope will not be hoisted up to global, but only defined inside the function itself. To call the value "0" you could rewrite it this way:
+```
+var answer;
 
+function steve() {
+  luke();
+}
+
+function luke() {
+  answer = "0";
+  greg(answer);
+}
+
+function greg(answer) {
+  answer = "666";
+  console.log( this.answer );
+}
+
+steve();
+```
+To call the value "666" you could rewrite the code this way:
+
+```
+var answer;
+
+function steve() {
+  luke();
+}
+
+function luke() {
+  answer = "0";
+  greg();
+}
+
+function greg() {
+  answer = "666";
+  console.log( this.answer );
+}
+
+steve();
+```
+
+#### NSS ORIGINAL QUIZ CODE: 
 ```
 var answer = "42";
 
