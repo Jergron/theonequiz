@@ -1,0 +1,30 @@
+article > section:nth-of-type(1) > ul > li {
+  
+}
+
+li {
+  display: inline;
+}
+li:nth-of-type(even) {
+  background-color: lime;
+}
+section:nth-of-type(odd) {
+  border: 2px solid black;
+}
+
+section > aside:nth-of-type(1) {
+  color: blue; 
+}
+
+body > div:nth-of-type(1) {
+  float: right;
+  clear: left;
+}
+body > div:nth-of-type(2) {
+  float: left;
+  clear: right;
+}
+body > div:nth-of-type(n+1) {
+  clear: both;
+}
+

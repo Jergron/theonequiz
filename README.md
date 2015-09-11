@@ -28,10 +28,41 @@ http-server
 ## JavaScript concepts
 1. Explain what hoisting is. Provide your answer below.
 
-  **Student answer: **
+[Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting):
+  >In JavaScript, functions and variables are hoisted. Hoisting is JavaScript's behavior of moving declarations to the top of a scope (the global scope or the current function scope).
+
+>That means that you are able to use a function or a variable before it has been declared, or in other words: a function or variable can be declared after it has been used already
+
+```
+foo = 2
+var foo;
+
+// is implicitly understood as:
+
+var foo;
+foo = 2;
+```
+
 1. What is a callback? Why do we use them in JavaScript? Provide your answer, and code a simple example below.
 
-  **Student answer: **
+[Callback](https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/Using_js-ctypes/Declaring_and_Using_Callbacks):
+  >A callback is declared by using ctypes.FunctionType. The first argument is the calling convention, the second argument is the return type, and the third is an array of arguments the callback expects.
+
+ >The return type of the javascript callback must match the return type declared, otherwise js-ctypes will through an error saying "unexpectd return type".
+ 
+Example
+This callback that returns boolean and has two arguments.
+
+```
+var myFuncTypeDeclaration = ctypes.FunctionType(ctypes.default_abi, ctypes.boolean, [ctypes.int, ctypes.voidptr_t]);
+
+function myJSCallback(cInt, cPtr) {
+    return true; // as the return of the FunctionType was ctypes.boolean we must make our javascript callback return boolean otherwise js-ctypes will throw error saying unexpected type return
+}
+
+var myCCallback = myFuncTypeDeclaration.ptr(myJSCallback);
+```
+ 
 
 ## Functions and operators
 
@@ -60,7 +91,8 @@ http-server
 
 1. Write a function named `getAnimals` that uses the jQuery `ajax` method to retrieve the `data/animals.json` file. When you execute the functions, it should just log *just the array* of animals to the console when the async is complete. Make sure you provide a prompt of "animals" when logging the array.
 1. What are the four HTTP verbs that you can use in an XHR that correspond to the CRUD actions (create, read, update, delete)?
-  **Student answer:**
+
+  GET, PUT, POST, DELETE
 
 1. Why did we use Promises when dealing with asynchronous XHR calls?
   **Student answer:**
